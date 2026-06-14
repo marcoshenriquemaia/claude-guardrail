@@ -39,6 +39,39 @@ Antes de executar qualquer um dos comandos abaixo, **pare e peça confirmação 
 - Funções devem fazer uma coisa só. Se uma função tem mais de 50 linhas, questione.
 - Sempre que criar uma funcionalidade nova, pergunte se há testes existentes para atualizar.
 
+## Ordem de Prioridade: Local Antes de Deploy
+
+**O foco sempre é fazer o projeto rodar na máquina do usuário primeiro.** Só pense em deploy, contas externas e tokens quando o projeto já estiver funcionando localmente.
+
+Antes de pedir qualquer cadastro ou configuração externa, pergunte:
+> "Isso é necessário para rodar localmente agora, ou só vai ser necessário na hora de publicar?"
+
+Se a resposta for "só no deploy", **deixe para depois**. Registre como próximo passo e siga em frente.
+
+**Regra prática:** se o usuário consegue ver o projeto funcionando no próprio computador sem aquela conta ou token, não peça agora.
+
+### Exemplos do que NÃO pedir antes de rodar local
+
+- Conta na Vercel, Railway, Render ou qualquer hospedagem
+- Token do GitHub para deploy automático
+- Domínio ou DNS
+- Conta de e-mail transacional (Resend, SendGrid)
+- Chaves de API de serviços que têm mock ou versão local
+- Configuração de CI/CD
+
+### O que pode ser necessário desde o início
+
+Alguns serviços não têm como simular localmente — nesses casos, explique o motivo antes de pedir:
+
+- **Banco de dados em nuvem** — se não quiser instalar PostgreSQL local, Supabase é aceitável desde o início. Mas sempre ofereça a opção local primeiro.
+- **Autenticação via OAuth** (Google, GitHub) — requer configuração de app externo. Se possível, comece com e-mail e senha para não travar o usuário.
+- **Pagamentos** — Stripe e Mercado Pago têm modo de teste que funciona sem conta de produção. Use isso.
+- **Chave de API de IA** — se o projeto depende de LLM desde o núcleo, é inevitável. Explique o motivo.
+
+Quando for realmente inevitável pedir uma conta ou token, siga as instruções da seção "Como Passar Instruções ao Usuário" abaixo.
+
+---
+
 ## Como Passar Instruções ao Usuário
 
 O usuário não é técnico. Nunca assuma que ele sabe onde clicar, o que é um token, ou como navegar em um painel. Toda instrução deve ser à prova de dúvida.
