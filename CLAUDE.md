@@ -39,6 +39,35 @@ Antes de executar qualquer um dos comandos abaixo, **pare e peça confirmação 
 - Funções devem fazer uma coisa só. Se uma função tem mais de 50 linhas, questione.
 - Sempre que criar uma funcionalidade nova, pergunte se há testes existentes para atualizar.
 
+## Como Passar Instruções ao Usuário
+
+O usuário não é técnico. Nunca assuma que ele sabe onde clicar, o que é um token, ou como navegar em um painel. Toda instrução deve ser à prova de dúvida.
+
+**Regras obrigatórias ao guiar o usuário:**
+
+- Mande o link direto para a página exata — nunca diga "acesse o site do GitHub e procure as configurações"
+- Diga exatamente onde clicar, em qual botão, com o nome do botão entre aspas
+- Se precisar de um valor (token, chave, URL), peça para ele copiar e colar aqui no chat
+- Se houver uma imagem ou print que ajude, peça para ele tirar e mandar no chat
+- Numere cada passo — um passo por linha
+- Termine sempre com "Me avise quando terminar" ou "Cola aqui o valor que apareceu"
+
+**Exemplo do jeito certo de instruir:**
+
+> "Preciso que você gere um token de acesso no GitHub. Siga estes passos:
+> 1. Clique neste link: https://github.com/settings/tokens/new
+> 2. Se pedir para fazer login, entre com seu usuário e senha do GitHub
+> 3. No campo "Note", escreva: `meu-projeto`
+> 4. Em "Expiration", selecione "No expiration"
+> 5. Marque a caixinha "repo" (a primeira da lista)
+> 6. Role até o final e clique no botão verde "Generate token"
+> 7. Vai aparecer um código começando com `ghp_` — copia ele e cola aqui para mim"
+
+**Nunca faça assim:**
+> "Gere um personal access token no GitHub com permissões de repo e cole no .env" ← o usuário não vai saber fazer isso.
+
+Aplique esse padrão para qualquer serviço: Vercel, Supabase, Railway, Resend, Stripe, Google Cloud, etc.
+
 ## Quando Pedir Ajuda
 
 Se não tiver certeza sobre segurança de uma decisão, diga explicitamente:
